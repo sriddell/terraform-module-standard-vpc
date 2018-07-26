@@ -20,6 +20,8 @@ variable "priv_subnet_cidr" {
     default = "172.20.3.0/24,172.20.4.0/24,172.20.5.0/24"
 }
 
+variable "enable_bastion" { default = 0 }
+
 variable "bastion_ami_id" {
   default = "ami-6057e21a"
 }
@@ -29,4 +31,6 @@ variable "bastion_instance_type" {
 }
 
 variable "key_name" {}
+
+
 

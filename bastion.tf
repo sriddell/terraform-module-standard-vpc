@@ -1,4 +1,5 @@
 resource "aws_security_group" "ssh" {
+  count = "${var.enable_bastion}"
   name = "ssh"
   description = "allow ssh"
   vpc_id = "${aws_vpc.vpc.id}"
@@ -28,6 +29,7 @@ resource "aws_security_group" "ssh" {
 
 
 resource "aws_instance" "bastion_host" {
+  count = "${var.enable_bastion}"
   ami = "${var.bastion_ami_id}"
   instance_type = "${var.bastion_instance_type}"
   key_name = "${var.key_name}"
@@ -45,9 +47,9 @@ resource "aws_instance" "bastion_host" {
 }
 
 output "bastion_host" {
-    value = "${aws_instance.bastion_host.public_dns}"
+    value = "${aws_instance.bastion_host.*.public_dns}"
 }
 
 output "bastion_ip" {
-    value = "${aws_instance.bastion_host.public_ip}"
+    value = "${aws_instance.bastion_host.*.public_ip}"
 }
