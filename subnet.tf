@@ -63,6 +63,10 @@ resource "aws_eip" "nateip" {
     vpc = true
 }
 
+output "nat_ips" {
+    value = "${aws_eip.nateip.*.public_ip}"
+}
+
 resource "aws_nat_gateway" "natgateway" {
   count = "${length(split(",", var.az))}"
   allocation_id = "${element(aws_eip.nateip.*.id, count.index)}"
