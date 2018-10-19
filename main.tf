@@ -13,6 +13,7 @@ resource "aws_vpc" "vpc" {
     Environment = "${var.environment}"
     Service = "${var.service}"
     POC = "${var.poc}"
+    Group = "${var.group}"
   }
 }
 
@@ -24,6 +25,7 @@ resource "aws_internet_gateway" "igw" {
     Environment = "${var.environment}"
     Service = "${var.service}"
     POC = "${var.poc}"
+    Group = "${var.group}"
   }
 }
 

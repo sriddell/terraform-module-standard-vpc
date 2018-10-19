@@ -24,6 +24,7 @@ resource "aws_security_group" "ssh" {
     Environment = "${var.environment}"
     Service = "${var.service}"
     POC = "${var.poc}"
+    Group = "${var.group}"
   }
 }
 
@@ -43,6 +44,7 @@ resource "aws_instance" "bastion_host" {
     Environment = "${var.environment}"
     Service = "${var.service}"
     POC = "${var.poc}"
+    Group = "${var.group}"
   }
 }
 

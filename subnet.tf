@@ -9,6 +9,7 @@ resource "aws_subnet" "public" {
     Environment = "${var.environment}"
     Service = "${var.service}"
     POC = "${var.poc}"
+    Group = "${var.group}"
   }
 }
 
@@ -24,6 +25,7 @@ resource "aws_route_table" "route" {
     Environment = "${var.environment}"
     Service = "${var.service}"
     POC = "${var.poc}"
+    Group = "${var.group}"
   }
 }
 
@@ -51,6 +53,7 @@ resource "aws_subnet" "private" {
     CostCenter = "${var.costcenter}"
     Environment = "${var.environment}"
     Service = "${var.service}"
+    Group = "${var.group}"
   }
 }
 
@@ -89,6 +92,7 @@ resource "aws_route_table" "priv_rt" {
     Environment = "${var.environment}"
     Service = "${var.service}"
     POC = "${var.poc}"
+    Group = "${var.group}"
   }
 }
 

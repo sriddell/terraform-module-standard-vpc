@@ -2,6 +2,7 @@ variable "aws_region" {}
 variable "service" {}
 variable "environment" {}
 variable "costcenter" {}
+variable "group" {default=""}
 variable "poc" {}
 
 variable "vpc_cidr_block" {
