@@ -75,6 +75,13 @@ resource "aws_nat_gateway" "natgateway" {
   allocation_id = "${element(aws_eip.nateip.*.id, count.index)}"
   subnet_id = "${element(aws_subnet.public.*.id, count.index)}"
   depends_on = ["aws_eip.nateip"]
+  tags {
+    CostCenter = "${var.costcenter}"
+    Environment = "${var.environment}"
+    Service = "${var.service}"
+    POC = "${var.poc}"
+    Group = "${var.group}"
+  }
 }
 
 
